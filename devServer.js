@@ -1,7 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
-import config from './webpack.config.babel';
+import config from './webpack.config';
 import Express from 'express';
 
 const app = new Express();
