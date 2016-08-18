@@ -6,7 +6,7 @@ import { getItems, getErrorMessage, getIsFetching } from '../reducers';
 import ItemList from './ItemList';
 import FetchError from './FetchError';
 
-class DynamicGraph extends Component {
+export class DynamicGraph extends Component {
   componentDidMount() {
     this.fetchData();
   }
@@ -51,9 +51,9 @@ const mapStateToProps = (state) => ({
   items: getItems(state),
 });
 
-DynamicGraph = withRouter(connect(
+const wrappedDynamicGraph = withRouter(connect(
   mapStateToProps,
   actions
 )(DynamicGraph));
 
-export default DynamicGraph;
+export default wrappedDynamicGraph;
