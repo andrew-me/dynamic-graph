@@ -8,6 +8,11 @@ export default {
     filename: 'bundle.js',
     publicPath: '/static/',
   },
+  externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+  },
   module: {
     loaders: [{
       test: /\.js$/,

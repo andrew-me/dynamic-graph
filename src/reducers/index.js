@@ -33,14 +33,14 @@ const errorMessage = (state = null, action) => {
   }
 };
 
-const items = combineReducers({
+const reducer = combineReducers({
   allItems,
   isFetching,
   errorMessage,
 });
 
 
-export default items;
+export default reducer;
 
 export const getItems = (state) => state.allItems;
 export const getIsFetching = (state) => state.isFetching;
