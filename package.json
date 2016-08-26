@@ -5,7 +5,7 @@
   "scripts": {
     "start": "babel-node devServer.js",
     "test": "mocha -w jsdom.js **/*.spec.js",
-    "lint": "eslint src"
+    "lint": "eslint src --global describe --global it"
   },
   "repository": {
     "type": "git",

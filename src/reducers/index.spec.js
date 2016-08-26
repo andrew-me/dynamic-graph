@@ -10,7 +10,7 @@ describe('reducer', () => {
       allItems: [],
       isFetching: false,
       errorMessage: null,
-    }
+    };
 
     deepFreeze(stateBefore);
     deepFreeze(action);
@@ -27,7 +27,7 @@ describe('reducer', () => {
       allItems: [],
       isFetching: true,
       errorMessage: null,
-    }
+    };
 
     deepFreeze(stateBefore);
     deepFreeze(action);
@@ -44,13 +44,13 @@ describe('reducer', () => {
     };
     const action = {
       type: 'FETCH_ITEMS_SUCCESS',
-      response: response,
+      response,
     };
     const stateAfter = {
       allItems: response,
       isFetching: false,
       errorMessage: null,
-    }
+    };
 
     deepFreeze(stateBefore);
     deepFreeze(action);
@@ -59,7 +59,7 @@ describe('reducer', () => {
   });
 
   it('should handle FETCH_ITEMS_FAILURE', () => {
-    const message = "error";
+    const message = 'error';
     const stateBefore = {
       allItems: [],
       isFetching: true,
@@ -67,13 +67,13 @@ describe('reducer', () => {
     };
     const action = {
       type: 'FETCH_ITEMS_FAILURE',
-      message: message,
+      message,
     };
     const stateAfter = {
       allItems: [],
       isFetching: false,
       errorMessage: message,
-    }
+    };
 
     deepFreeze(stateBefore);
     deepFreeze(action);
