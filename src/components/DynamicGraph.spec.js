@@ -10,6 +10,7 @@ describe('DynamicGraph', () => {
     const wrapper = shallow(<DynamicGraph
       items={[]}
       isFetching
+      fetchItems={() => {}}
     />);
 
     expect(wrapper.contains(<p>Loading...</p>)).toEqual(true);
@@ -18,6 +19,8 @@ describe('DynamicGraph', () => {
   it('should render FetchError if errorMessage and no items', () => {
     const wrapper = shallow(<DynamicGraph
       items={[]}
+      isFetching={false}
+      fetchItems={() => {}}
       errorMessage={'error'}
     />);
 
@@ -26,9 +29,14 @@ describe('DynamicGraph', () => {
 
   it('should render ItemList if items - even if an errorMessage or isFetching', () => {
     const wrapper = shallow(<DynamicGraph
-      items={[{ item: true }]}
-      errorMessage={'error'}
+      items={[{
+        sort: 0,
+        year: 2012,
+        rank: 30,
+      }]}
       isFetching
+      fetchItems={() => {}}
+      errorMessage={'error'}
     />);
 
     expect(wrapper.type()).toEqual(ItemList);
@@ -37,6 +45,7 @@ describe('DynamicGraph', () => {
   it('should fetchItems', () => {
     const props = {
       items: [],
+      isFetching: false,
       fetchItems: expect.createSpy(),
     };
     mount(<DynamicGraph {...props} />);
